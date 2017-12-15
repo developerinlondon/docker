@@ -9,6 +9,14 @@ before_install:
     - docker --version
 
 script:
+    - image="developerinlondon/jenkins:2.95"
+    - docker build -t "$image" -f Dockerfile-full .
+    - docker inspect "$image"
+
+    - image="developerinlondon/jenkins:2.95-slim"
+    - docker build -t "$image" -f Dockerfile-slim .
+    - docker inspect "$image"
+
     - image="developerinlondon/jenkins:2.95-alpine"
     - docker build -t "$image" -f Dockerfile-alpine .
     - docker inspect "$image"
