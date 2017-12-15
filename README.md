@@ -7,7 +7,7 @@ This is a fully functional Jenkins server.
 
 <img src="http://jenkins-ci.org/sites/default/files/jenkins_logo.png"/>
 
-
+<img src="https://travis-ci.org/developerinlondon/docker-jenkins.svg?branch=master" />
 # Usage
 
 ```
