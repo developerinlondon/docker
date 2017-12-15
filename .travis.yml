@@ -1,0 +1,16 @@
+branches:
+  only:
+    - master
+
+services:
+    - docker
+
+before_install:
+    - docker --version
+
+script:
+    - image="developerinlondon/jenkins:2.95-alpine"
+    - docker build -t "$image" -f Dockerfile-alpine .
+    - docker inspect "$image"
+    # - docker run --rm "$image" openvpn --version || true # why does it return 1?
+    # - docker run --rm "$image" openssl version

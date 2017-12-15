@@ -1,5 +1,29 @@
-master:
-  build: .
+jenkins-ubuntu:
+  build: 
+    context: .
+    dockerfile: ./Dockerfile-ubuntu
+  environment:
+    JAVA_OPTS: "-Djava.awt.headless=true"
+  ports:
+    - "50000:50000"
+    - "8080:8080"
+  volumes:
+    - /var/jenkins_home
+jenkins-slim:
+  build:
+    context: .
+    dockerfile: ./Dockerfile-slim
+  environment:
+    JAVA_OPTS: "-Djava.awt.headless=true"
+  ports:
+    - "50000:50000"
+    - "8080:8080"
+  volumes:
+    - /var/jenkins_home
+jenkins-alpine:
+  build:
+    context: .
+    dockerfile: ./Dockerfile-alpine
   environment:
     JAVA_OPTS: "-Djava.awt.headless=true"
   ports:
